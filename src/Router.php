@@ -8,7 +8,7 @@ class Router {
      */
     private $viewPath;
 
-    public $layout = 'layout/default';
+    public $layout = 'layout/home';
 
     /**
      * @var AltoRouter
@@ -34,11 +34,10 @@ class Router {
     {
         $match = $this->router->match();
         $controller = $match['target'] ?: 'e404';
-        $layout = 'layout/default';
         ob_start();
         require $this->controllerPath . DIRECTORY_SEPARATOR . $controller . '.php';
         $content = ob_get_clean();
-        require $this->viewPath . DIRECTORY_SEPARATOR . $layout . '.php';
+        require $this->viewPath . DIRECTORY_SEPARATOR . $this->layout . '.php';
 
         return $this;
     }
