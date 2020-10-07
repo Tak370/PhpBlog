@@ -7,6 +7,6 @@ $whoops->register();
 
 $router = new App\Router(dirname(__DIR__) . '/src/controller', dirname(__DIR__) . '/view');
 $router
-    ->get('/', 'home/home', 'home')
+    ->postGet('/', 'home/home', 'home')
     ->get('/blog', 'post/index', 'blog')
     ->run();

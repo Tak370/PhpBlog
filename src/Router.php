@@ -30,6 +30,20 @@ class Router {
         return $this;
     }
 
+    public function post(string $url, string $controller, ?string $name = null): self
+    {
+        $this->router->map('POST', $url, $controller, $name);
+
+        return $this;
+    }
+
+    public function postGet(string $url, string $controller, ?string $name = null): self
+    {
+        $this->router->map('GET|POST', $url, $controller, $name);
+
+        return $this;
+    }
+
     public function run(): self
     {
         $match = $this->router->match();

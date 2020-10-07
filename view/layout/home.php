@@ -5,52 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= isset($title) ? e($title): 'Mon site' ?></title>
-    <link rel="stylesheet" type="text/css" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../public/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js"></script>
 </head>
-<body>
 
-<!-- navbar -->
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
 
-<nav class="navbar navbar-expand-lg fixed-top ">
-    <a class="navbar-brand" href="#">Accueil</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+    <a class="navbar-brand" href="#"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+        <i class="fas fa-bars fa-lg"></i>
     </button>
 
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav mr-4">
-
-            <li class="nav-item">
-                <a class="nav-link" data-value="about" href="#">A propos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " data-value="blog" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " data-value="contact" href="#">Contact</a>
-            </li>
+    <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
+        <ul class="nav nav-pills navbar-nav">
+            <li class="nav-item"><a class="nav-link goto" href="#home">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link goto" href="#skills">Compétences</a></li>
+            <li class="nav-item"><a class="nav-link goto" href="#about">À propos</a></li>
+            <li class="nav-item"><a class="nav-link goto" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog">Le Blog</a></li>
         </ul>
-
     </div>
 </nav>
 
-<div class="container mt-4">
-    <?= $content ?>
-</div>
-
-<footer class="bg-light py-4 footer mt-auto">
-    <div class="container">
-
-    </div>
-</footer>
-
-<!-- add Javascript file from js file -->
-
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src='js/main.js'></script>
+<?= $content ?>
 
 </body>
 </html>
