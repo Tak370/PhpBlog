@@ -5,7 +5,7 @@
     <div class="heading">
         <h1>Laurent Legrand</h1>
         <h3>Développeur Web</h3>
-        <a href="docs/CV2.pdf" class="button1">Télécharger CV</a>
+        <a href="docs/CV2.pdf" class="button1" target="_blank">Télécharger CV</a>
     </div>
 </section>
 
