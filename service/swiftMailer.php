@@ -1,6 +1,6 @@
 <?php
 
-require '../config/swiftmailerConfig.php';
+require '../config/swiftMailerConfig.php';
 
 // Send an Email using SwiftMailer
 if (isset($_POST['sendmail'])) {
