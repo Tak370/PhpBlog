@@ -4,7 +4,7 @@
         <p class="text-muted"><?= $post->getCreatedAt()->format('d F Y')?></p>
         <p><?= $post->getExcerpt() ?></p>
         <p>
-            <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()])?>" class="btn btn-primary">Voir plus</a>
+            <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()])?>" class="btn btn-info">Voir plus</a>
         </p>
     </div>
 </div>
