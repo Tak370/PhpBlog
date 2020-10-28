@@ -100,9 +100,6 @@
 <section id="contact">
     <div class="container">
         <div class="red-divider"></div>
-
-
-
         <div class="heading">
             <h2>Contactez-moi</h2>
         </div>
@@ -127,7 +124,6 @@
 
 
             </div>
-
 
 </section>
 

@@ -44,10 +44,15 @@ class Router {
         return $this;
     }
 
+    public function url (string $name, array $params = []) {
+        return $this->router->generate($name, $params);
+    }
+
     public function run(): self
     {
         $match = $this->router->match();
         $controller = $match['target'] ?: 'e404';
+        $router = $this;
         ob_start();
         require $this->controllerPath . DIRECTORY_SEPARATOR . $controller . '.php';
         $content = ob_get_clean();

@@ -25,7 +25,7 @@ section .heading h2{
 .red-divider{
     width: 100px;
     height: 2px;
-    background: #d82c2e;
+    background: #ff6861;
     margin: 0 auto 20px;
 
 }
@@ -39,7 +39,7 @@ section .heading h2{
 
 /* MENU */
 .navbar {
-    background-color: #d82c2e;
+    background-color: #ff6861;
     font-size: 12px;
     border-bottom: 1px solid #fff;
     letter-spacing: 4px;
@@ -51,7 +51,7 @@ section .heading h2{
     text-align: center;
 }
 .nav-pills .nav-link.active,  .nav-pills .nav-link:hover{
-    color: #d82c2e !important;
+    color: #ff6861 !important;
     background-color: #fff !important;
 }
 .navbar-toggler{
@@ -63,7 +63,7 @@ section .heading h2{
 /* HOME */
 #home{
     padding-top: 50px;
-    background: #d82c2e;
+    background: #ff6861;
 }
 
 .profile-picture{
@@ -77,7 +77,7 @@ section .heading h2{
     margin-top: 20px;
 }
 #home .heading h3{
-    color: #000;
+    color: #3f3e44;
 }
 .button1{
     font-weight: bold;
@@ -92,7 +92,7 @@ section .heading h2{
 }
 .button1:hover{
     background: white;
-    color: #d82c2e;
+    color: #ff6861;
     text-decoration: none;
 }
 
@@ -103,7 +103,7 @@ section .heading h2{
 }
 
 #skills .heading h2 {
-    color: #d82c2e;
+    color: #ff6861;
 }
 #skills .progress{
     height: auto;
@@ -111,7 +111,7 @@ section .heading h2{
     background: #ddd;
 }
 #skills .progress-bar{
-    background: #d82c2e;
+    background: #ff675f;
 }
 #skills .progress h5{
     margin-top: 5px;
@@ -121,7 +121,7 @@ section .heading h2{
 
 /* ABOUT */
 #about{
-    background: #d82c2e;
+    background: #ff6861;
 }
 #about .heading h2, h3, p{
     color: #fff;
@@ -133,7 +133,7 @@ section .heading h2{
     background: #fff;
 }
 #contact .heading h2{
-    color: #d82c2e;
+    color: #ff6861;
 }
 
 
@@ -145,7 +145,7 @@ footer{
 footer .fas{
     font-size:  25px;
     margin: 20px;
-    color: #d82c2e;
+    color: #ff6861;
     height: 30px;
 }
 footer .fas:hover{
@@ -154,4 +154,19 @@ footer .fas:hover{
 footer h5{
     color: #fff;
     font-weight: normal;
+}
+
+
+/* BLOG */
+#blog{
+    background: #ff6861;
+}
+#blog .heading h2, p{
+    color: #fff;
+}
+#blog p{
+    color: #000;
+}
+.btn-card{
+    background: #ff6861;
 }
