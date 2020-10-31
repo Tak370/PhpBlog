@@ -15,6 +15,12 @@
                 </div>
             <?php endforeach ?>
         </div>
+
+        <div class="d-flex justify-content-between my-4">
+            <?= $paginatedQuery->previousLink($link); ?>
+            <?= $paginatedQuery->nextLink($link); ?>
+        </div>
+
     </div>
 </section>
 
