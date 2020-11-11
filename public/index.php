@@ -8,6 +8,7 @@ $whoops->register();
 $router = new App\Router(dirname(__DIR__) . '/src/controller', dirname(__DIR__) . '/view');
 $router
     ->postGet('/', 'home/home', 'home')
+    ->get('/blog/category/[*:slug]-[i:id]', 'category/show', 'category')
     ->get('/blog', 'post/index', 'blog')
     ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
     ->run();
