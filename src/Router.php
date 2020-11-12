@@ -52,6 +52,7 @@ class Router {
     {
         $match = $this->router->match();
         $controller = $match['target'] ?: 'e404';
+        $params = $match['params'];
         $router = $this;
         ob_start();
         require $this->controllerPath . DIRECTORY_SEPARATOR . $controller . '.php';
