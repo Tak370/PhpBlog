@@ -10,13 +10,3 @@
 endforeach ?>
 <p><?= $post->getFormattedContent() ?></p>
 
-
-
-
-
-
-
-
-
-
-
