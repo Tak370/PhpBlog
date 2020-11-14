@@ -159,14 +159,15 @@ footer h5{
 
 /* BLOG */
 #blog{
-    background: #ff6861;
+    background: #fff;
 }
 #blog .heading h2, p{
-    color: #fff;
+    color: #000;
 }
 #blog p{
     color: #000;
 }
-.btn-card{
+.btn-info{
     background: #ff6861;
+    border-color: #ff6861;
 }

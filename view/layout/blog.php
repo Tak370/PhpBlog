@@ -16,7 +16,7 @@
     <script src="/js/script.js"></script>
 </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
+<body class="d-flex flex-column h-100">
 
 <nav class="navbar navbar-expand-md navbar-dark sticky-top">
     <a class="navbar-brand" href="#"></a>
@@ -28,10 +28,13 @@
     <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
         <ul class="nav nav-pills navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog">Articles</a></li>
     </div>
 </nav>
 
-<?= $content ?>
+<div class="container mt-4">
+    <?= $content ?>
+</div>
 
 </body>
 </html>
