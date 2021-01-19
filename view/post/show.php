@@ -1,7 +1,6 @@
-
-<h1><?= e($title) ?></h1>
-<p class="text-muted"><?= $post->getCreatedAt()->format('d F Y') ?></p>
-<?php foreach ($categories as $k => $category):
+<h1><?= e($post->getName()) ?></h1>
+<p class="text-muted"><?= $post->getCreatedAt()->format('d/m/Y')?></p>
+<?php foreach($post->getCategories() as $k => $category):
     if ($k > 0):
         echo ', ';
     endif;
@@ -9,14 +8,3 @@
     ?><a href="<?= $category_url ?>"><?= e($category->getName()) ?></a><?php
 endforeach ?>
 <p><?= $post->getFormattedContent() ?></p>
-
-
-
-
-
-
-
-
-
-
-

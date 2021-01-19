@@ -1,29 +1,16 @@
 <?php
 use App\Connection;
-use App\Model\Post;
+use App\Table\PostTable;
 
 $title = 'Le Blog';
 $pdo = Connection::getPDO();
-$this->layout='layout/blog';
-$page = $_GET['page'] ?? 1;
 
-if (!filter_var($page, FILTER_VALIDATE_INT)) {
-    throw new Exception('Numéro de page invalide');
-}
+$table = new PostTable($pdo);
+[$posts, $pagination] = $table->findPaginated();
 
-$currentPage = (int)$page;
-if ($currentPage <= 0) {
-    throw new Exception('Numéro de page invalide');
-}
-$count = (int)$pdo->query('SELECT COUNT(id) FROM post')->fetch(PDO::FETCH_NUM)[0];
-$perPage = 12;
-$pages = ceil($count / $perPage);
-if ($currentPage > $pages) {
-    throw new Exception('Cette page n\'existe pas');
-}
-$offset = $perPage * ($currentPage - 1);
-$query = $pdo->query("SELECT * FROM post ORDER BY created_at DESC LIMIT $perPage OFFSET $offset");
-$posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class);
+$link = $router->url('blog');
 
-
-require '../view/post/index.php';
+ob_start();
+require $this->viewPath . DIRECTORY_SEPARATOR . 'post/index.php';
+$content = ob_get_clean();
+require $this->viewPath . DIRECTORY_SEPARATOR . 'layout/blog.php';

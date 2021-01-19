@@ -1,34 +1,25 @@
 <?php
 
 use App\Connection;
-use App\Model\Category;
-use App\Model\Post;
+use App\Table\CategoryTable;
+use App\Table\PostTable;
+
 
 $id = (int)$params['id'];
-$slug = (int)$params['slug'];
+$slug = $params['slug'];
 
 $pdo = Connection::getPDO();
-$this->layout='layout/blog';
-$query = $pdo->prepare('SELECT * FROM post WHERE id = :id');
-$query->execute(['id' => $id]);
-$query->setFetchMode(PDO::FETCH_CLASS, Post::class);
-/** @var Post|false */
-$post = $query->fetch();
+$post = (new PostTable($pdo))->find($id);
+(new CategoryTable($pdo))->hydratePosts([$post]);
 
-if ($post === false) {
-    throw new Exception('Aucun article ne correspond à cet ID');
+if ($post->getSlug() !== $slug) {
+    $url = $router->url('post', ['slug' => $post->getSlug(), 'id' => $id]);
+    http_response_code(301);
+    header('Location: ' . $url);
 }
 
-$query = $pdo->prepare('
-SELECT c.id, c.slug, c.name
-FROM post_category pc
-JOIN category c ON pc.category_id = c.id
-WHERE pc.post_id = :id');
-$query->execute(['id' => $post->getID()]);
-$query->setFetchMode(PDO::FETCH_CLASS, Category::class);
-/** @var Category[] */
-$categories = $query->fetchAll();
-
-$title = $post->getName();
-
-require '../view/post/show.php';
+ob_start();
+//require '../view/post/show.php';
+require $this->viewPath . DIRECTORY_SEPARATOR . 'post/show.php';
+$content = ob_get_clean();
+require $this->viewPath . DIRECTORY_SEPARATOR . 'layout/blog.php';

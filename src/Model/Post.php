@@ -1,73 +1,67 @@
 <?php
-
 namespace App\Model;
 
 use App\Helper\Text;
-use \DateTime;
+use DateTime;
 
-class Post {
-
+class Post
+{
     private $id;
 
     private $name;
+
+    private $slug;
 
     private $content;
 
     private $created_at;
 
-    private $slug;
-
     private $categories = [];
 
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
+    public function getID(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return string|null
-     */
     public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * @return string|null
-     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function getExcerpt(): ?string
+    {
+        if ($this->content === null) {
+            return null;
+        }
+        return nl2br(htmlentities(Text::excerpt($this->content, 60)));
+    }
+
+    public function getCreatedAt(): DateTime
+    {
+        return new DateTime($this->created_at);
+    }
+
     public function getFormattedContent(): ?string
     {
         return nl2br(e($this->content));
     }
 
     /**
-     * @return string|null
+     * @return Category[]
      */
-    public function getExcerpt(): ?string
+    public function getCategories(): array
     {
-        if ($this->content === null) {
-            return null;
-        }
-        return nl2br(e(Text::excerpt($this->content, 60)));
+        return $this->categories;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getCreatedAt(): DateTime
+    public function addCategory(Category $category): void
     {
-        return new DateTime($this->created_at);
+        $this->categories[] = $category;
+        $category->setPost($this);
     }
-
-    /**
-     * @return string|null
-     */
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
 }

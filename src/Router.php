@@ -1,17 +1,14 @@
 <?php
 namespace App;
 
-class Router {
-
+class Router
+{
     /**
      * @var string
      */
     private $viewPath;
-
-    public $layout = 'layout/home';
-
     /**
-     * @var AltoRouter
+     * @var \AltoRouter
      */
     private $router;
     private $controllerPath;
@@ -54,10 +51,7 @@ class Router {
         $controller = $match['target'] ?: 'e404';
         $params = $match['params'];
         $router = $this;
-        ob_start();
         require $this->controllerPath . DIRECTORY_SEPARATOR . $controller . '.php';
-        $content = ob_get_clean();
-        require $this->viewPath . DIRECTORY_SEPARATOR . $this->layout . '.php';
 
         return $this;
     }
