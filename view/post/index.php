@@ -1,7 +1,7 @@
 
 <section id="blog">
     <div class="heading">
-        <h2>Le Blog</h2>
+        <h2>Articles</h2>
     </div>
     <div class="row">
         <?php foreach ($posts as $post): ?>

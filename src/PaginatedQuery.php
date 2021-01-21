@@ -74,7 +74,7 @@ HTML;
 
     private function getCurrentPage (): int
     {
-        return URL::getPositiveInt('page', 1);
+        return RequestManager::getPositiveInt('page', 1);
     }
 
     private function getNbPages (): int

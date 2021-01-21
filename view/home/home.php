@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
                         <h5>SYMFONY</h5>
                     </div>
                 </div>
@@ -85,7 +85,6 @@
             <p>Quelques lignes pour en savoir un peu plus sur moi</p>
         </div>
         <h3>Laurent Legrand</h3>
-        <p>Étudiant Openclassrooms</p>
         <p>Développeur PHP/Symfony</p>
         <p>Après avoir exercé dans le secteur public en tant qu'animateur et communicant en gestion des déchets et développement durable, j'ai décidé en 2018 de me reconvertir dans le domaine du web.
             Je me suis donc lancé dans l'apprentissage des principales technologies de développement web, que ce soit au niveau frontend (HTML, CSS...) comme au niveau backend (SQL, PHP, Symfony).
@@ -95,6 +94,12 @@
         <p>Alors n'hésitez plus, collaborons ensemble dès maintenant !</p>
     </div>
 
+</section>
+
+<section class="separator" id="separator">
+    <div class="container">
+
+    </div>
 </section>
 
 <section id="contact">
@@ -115,7 +120,7 @@
                                 <input type="email" class="form-control form-control-lg" placeholder="VotreEmail@email.com" name="email">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control form-control-lg" placeholder="Votre message" name="message"></textarea>
+                                <textarea class="form-control form-control-lg" rows="5" placeholder="Votre message" name="message"></textarea>
                             </div>
                             <input type="submit" class="btn btn-secondary btn-block" value="Envoyer" name="sendmail">
                         </div>

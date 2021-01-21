@@ -4,7 +4,7 @@ namespace App;
 
 use Exception;
 
-class URL
+class RequestManager
 {
     public static function getInt(string $name, ?int $default = null): ?int
     {
