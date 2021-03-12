@@ -2,7 +2,8 @@
 
 namespace App\Table;
 
-use App\Table\Exception\NotFoundException;
+use App\Exception\NotFoundException;
+use Exception;
 use PDO;
 
 abstract class Table
@@ -14,10 +15,10 @@ abstract class Table
     public function __construct(PDO $pdo)
     {
         if ($this->table === null) {
-            throw new \Exception("La class " . get_class($this) . " n'a pas de propriéte \$table");
+            throw new Exception("La class " . get_class($this) . " n'a pas de propriéte \$table");
         }
         if ($this->class === null) {
-            throw new \Exception("La class " . get_class($this) . " n'a pas de propriéte \$class");
+            throw new Exception("La class " . get_class($this) . " n'a pas de propriéte \$class");
         }
         $this->pdo = $pdo;
     }

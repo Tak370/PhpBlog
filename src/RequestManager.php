@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Table\Exception\HttpNotFoundException;
 use Exception;
 
 class RequestManager
@@ -12,7 +13,8 @@ class RequestManager
         if ($_GET[$name] === '0') return 0;
 
         if(!filter_var($_GET[$name], FILTER_VALIDATE_INT)) {
-            throw new Exception("Le paramètre '$name' dans l'url n'est pas un entier");
+            throw new HttpNotFoundException("Cette page n'existe pas");
+            //throw new Exception("Le paramètre '$name' dans l'url n'est pas un entier");
         }
         return (int)$_GET[$name];
     }
@@ -21,7 +23,8 @@ class RequestManager
     {
         $param = self::getInt($name, $default);
         if ($param !== null && $param <= 0) {
-            throw new Exception("Le paramètre '$name' dans l'url n'est pas un entier positif");
+            throw new HttpNotFoundException("Cette page n'existe pas");
+           // throw new Exception("Le paramètre '$name' dans l'url n'est pas un entier positif");
         }
         return $param;
     }

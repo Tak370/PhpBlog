@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-class Config //SingletonS
+class Config
 {
     private static $INSTANCE = null;
     private $config;

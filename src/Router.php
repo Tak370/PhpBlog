@@ -1,6 +1,8 @@
 <?php
 namespace App;
 
+use App\Exception\HttpNotFoundException;
+
 class Router
 {
     /**
@@ -48,7 +50,10 @@ class Router
     public function run(): self
     {
         $match = $this->router->match();
-        $controller = $match['target'] ?: 'e404';
+        if (!$match) {
+            throw new HttpNotFoundException();
+        }
+        $controller = $match['target'];
         $params = $match['params'];
         $router = $this;
         require $this->controllerPath . DIRECTORY_SEPARATOR . $controller . '.php';
