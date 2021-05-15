@@ -5,19 +5,15 @@ namespace App\Model;
 class Category
 {
     private $id;
-
     private $name;
-
     private $slug;
-
     private $post_id;
-
     private $post;
 
     /**
      * @return mixed
      */
-    public function getID(): ?int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -41,7 +37,7 @@ class Category
     /**
      * @return mixed
      */
-    public function getPostID(): ?int
+    public function getPostId(): ?int
     {
         return $this->post_id;
     }

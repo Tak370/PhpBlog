@@ -7,18 +7,14 @@ use DateTime;
 class Post
 {
     private $id;
-
     private $name;
-
     private $slug;
-
     private $content;
-
     private $created_at;
-
+    private $comments = [];
     private $categories = [];
 
-    public function getID(): ?int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -38,7 +34,7 @@ class Post
         if ($this->content === null) {
             return null;
         }
-        return nl2br(htmlentities(Text::excerpt($this->content, 60)));
+        return Text::excerpt($this->content, 60);
     }
 
     public function getCreatedAt(): DateTime
@@ -46,9 +42,9 @@ class Post
         return new DateTime($this->created_at);
     }
 
-    public function getFormattedContent(): ?string
+    public function getContent(): ?string
     {
-        return nl2br(e($this->content));
+        return ($this->content);
     }
 
     /**
@@ -63,5 +59,18 @@ class Post
     {
         $this->categories[] = $category;
         $category->setPost($this);
+    }
+
+    /**
+     * @return Comment[]
+     */
+    public function getComments(): array
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): void
+    {
+        $this->comments[] = $comment;
     }
 }

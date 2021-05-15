@@ -31,11 +31,12 @@ try {
         ->postGet('/', 'home/home', 'home')
         ->get('/blog', 'post/index', 'blog')
         ->get('/blog/category/[*:slug]-[i:id]', 'category/show', 'category')
-        ->get('/blog/[*:slug]-[i:id]', 'post/show', 'post')
+        ->postGet('/blog/[*:slug]-[i:id]', 'post/show', 'post')
         ->run();
 } catch (AHttpException $e) {
     require '../src/controller/errorController.php';
 } catch (Exception $e) {
+    var_dump($e);
     $e = new InternalErrorException();
     require '../src/controller/errorController.php';
 }

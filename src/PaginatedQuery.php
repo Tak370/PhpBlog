@@ -68,7 +68,7 @@ HTML;
         }
         $link .= "?page=" . ($currentPage + 1);
         return <<<HTML
-            <a href="{$link}" class="btn btn-info ml-auto">&raquo; Page suivante</a>
+            <a href="{$link}" class="btn btn-info ml-auto">Page suivante &raquo;</a>
 HTML;
     }
 

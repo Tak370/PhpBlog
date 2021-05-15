@@ -21,15 +21,15 @@ final class PostTable extends Table
         (new CategoryTable($this->pdo))->hydratePosts($posts);
         return [$posts, $paginatedQuery];
     }
-    public function findPaginatedForCategory(int $categoryID)
+    public function findPaginatedForCategory(int $categoryId)
     {
         $paginatedQuery = new PaginatedQuery(
             "SELECT p.*
         FROM post p
         JOIN post_category pc ON pc.post_id = p.id
-        WHERE pc.category_id = {$categoryID}
+        WHERE pc.category_id = {$categoryId}
         ORDER BY created_at DESC",
-            "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$categoryID}"
+            "SELECT COUNT(category_id) FROM post_category WHERE category_id = {$categoryId}"
         );
         $posts = $paginatedQuery->getItems($this->class);
         (new CategoryTable($this->pdo))->hydratePosts($posts);

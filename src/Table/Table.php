@@ -35,4 +35,18 @@ abstract class Table
         return $result;
     }
 
+    public function create(array $data): int
+    {
+        $sqlFields = [];
+        foreach ($data as $key => $value) {
+            $sqlFields[] = "$key = :$key";
+        }
+        $query = $this->pdo->prepare("INSERT INTO {$this->table} SET " . implode(', ', $sqlFields));
+        $ok = $query->execute($data);
+        if ($ok === false) {
+            throw new Exception("Impossible de créer l'enregistrement dans la table {$this->table}");
+        }
+        return (int)$this->pdo->lastInsertId();
+    }
+
 }

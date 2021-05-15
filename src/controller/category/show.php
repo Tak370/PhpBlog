@@ -24,9 +24,9 @@ if ($category->getSlug() !== $slug) {
 
 $title = "Catégorie {$category->getName()}";
 
-[$posts, $paginatedQuery] = (new PostTable($pdo))->findPaginatedForCategory($category->getID());
+[$posts, $paginatedQuery] = (new PostTable($pdo))->findPaginatedForCategory($category->getId());
 
-$link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
+$link = $router->url('category', ['id' => $category->getId(), 'slug' => $category->getSlug()]);
 ob_start();
 require $this->viewPath . DIRECTORY_SEPARATOR . 'category/show.php';
 $content = ob_get_clean();

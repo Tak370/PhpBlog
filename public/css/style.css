@@ -175,7 +175,7 @@ footer h5{
 #blog{
     background: #fff;
 }
-#blog .heading h2, p{
+#blog .heading h2, h3, p{
     color: #000;
 }
 #blog a{
