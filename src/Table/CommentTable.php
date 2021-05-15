@@ -3,7 +3,6 @@
 namespace App\Table;
 
 use App\Model\Comment;
-use Exception;
 use PDO;
 
 final class CommentTable extends Table

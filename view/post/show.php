@@ -9,18 +9,22 @@
 endforeach ?>
 <p><?= nl2br(e($post->getContent())) ?></p>
 
+<?php if (!empty($errors)): ?>
+    <div class="alert alert-danger">
+        Votre commentaire n'a pas été pris en compte, veuilez corriger vos erreurs
+    </div>
+<?php endif ?>
+
+<?php if (isset($_GET['commented'])): ?>
+    <div class="alert alert-success">
+        Votre commentaire a été pris en compte
+    </div>
+<?php endif ?>
+
 <h2>Commentaires</h2>
 <hr>
 
-<form action="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" method="post">
-    <div class="form-group">
-        <input type="text" name="pseudo" placeholder="Votre pseudo" class="form-control">
-    </div>
-    <div class="form-group">
-        <textarea name="content" placeholder="Votre commentaire" class="form-control"></textarea>
-    </div>
-    <input type="submit" class="btn btn-info" value="Envoyer" name="sendcomment">
-</form>
+<?php require '_form.php' ?>
 
 <?php foreach($post->getComments() as $k => $comment): ?>
 <p class="mt-4"><strong><?= e($comment->getPseudo()) ?></strong><span class="text-muted"> le <?= $comment->getCreatedAt()->format('d/m/Y à H:i') ?></span></p>
