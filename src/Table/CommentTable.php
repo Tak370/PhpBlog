@@ -24,6 +24,7 @@ final class CommentTable extends Table
         foreach ($comments as $comment) {
             $postsById[$comment->getPostId()]->addComment($comment);
         }
+
     }
 
     public function createComment(Comment $comment): void

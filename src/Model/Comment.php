@@ -6,18 +6,16 @@ use DateTime;
 
 class Comment
 {
+    const WAITING_VALIDATION = 0;
+    const PUBLISHED = 1;
+
     private $id;
     private $pseudo;
     private $content;
     private $created_at;
-    private $status;
+    private $status = self::WAITING_VALIDATION;
     private $post_id;
     private $user_id;
-
-    public function __construct()
-    {
-        $this->setStatus(0);
-    }
 
     public function getId()
     {
@@ -62,7 +60,7 @@ class Comment
 
     public function getStatus()
     {
-        return $this->status;
+        return (int)$this->status;
     }
 
     public function setStatus($status)

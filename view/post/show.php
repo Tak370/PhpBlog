@@ -1,3 +1,8 @@
+<?php
+
+use App\Model\Comment;
+
+?>
 <h1><?= e($post->getName()) ?></h1>
 <p class="text-muted"><?= $post->getCreatedAt()->format('d/m/Y')?></p>
 <?php foreach($post->getCategories() as $k => $category):
@@ -27,7 +32,10 @@ endforeach ?>
 <?php require '_form.php' ?>
 
 <?php foreach($post->getComments() as $k => $comment): ?>
-<p class="mt-4"><strong><?= e($comment->getPseudo()) ?></strong><span class="text-muted"> le <?= $comment->getCreatedAt()->format('d/m/Y à H:i') ?></span></p>
-<p><?= nl2br(e($comment->getContent())) ?></p>
+    <?php if ($comment->getStatus() === Comment::PUBLISHED ): ?>
+        <p class="mt-4"><strong><?= e($comment->getPseudo()) ?></strong><span class="text-muted"> le <?= $comment->getCreatedAt()->format('d/m/Y à H:i') ?></span></p>
+        <p><?= nl2br(e($comment->getContent())) ?></p>
+    <?php endif ?>
 <?php endforeach ?>
+
 
