@@ -1,13 +1,3 @@
-<?php
-
-use App\Connection;
-use App\Table\CategoryTable;
-
-$title = "Gestion des catégories";
-$pdo = Connection::getPDO();
-$items = (new CategoryTable($pdo))->all();
-$link = $router->url('admin_categories');
-?>
 
 <table class="table">
     <thead>

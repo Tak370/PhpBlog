@@ -7,78 +7,62 @@ namespace App\Model;
 class User
 {
     private $id;
-    private $name;
+    private $username;
     private $email;
     private $password;
     private $created_at;
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getName()
+    public function setId(int $id): self
     {
-        return $this->name;
+        $this->id = $id;
+
+        return $this;
     }
 
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
+    public function getUsername(): ?string
     {
-        $this->name = $name;
+        return $this->username;
     }
 
-    /**
-     * @return mixed
-     */
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
     public function getEmail()
     {
         return $this->email;
     }
 
-    /**
-     * @param mixed $email
-     */
     public function setEmail($email): void
     {
         $this->email = $email;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password): void
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
     }
 
-    /**
-     * @return mixed
-     */
     public function getCreatedAt()
     {
         return $this->created_at;
     }
 
-    /**
-     * @param mixed $created_at
-     */
     public function setCreatedAt($created_at): void
     {
         $this->created_at = $created_at;

@@ -30,7 +30,11 @@
             <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
             <li class="nav-item"><a class="nav-link active" href="<?= $router->url('admin_posts') ?>">Articles</a></li>
             <li class="nav-item"><a class="nav-link" href="<?= $router->url('admin_categories') ?>">Catégories</a></li>
-            <li class="nav-item"><a class="nav-link active" href="<?= $router->url('logout') ?>">Se déconnecter</a></li>
+            <li class="nav-item">
+                <form action="<?= $router->url('logout') ?>" method="post" style="display: inline">
+                    <button class="btn btn-primary nav-link" type="submit" style="background:transparent; border:none;">Se déconnecter</button>
+                </form>
+            </li>
     </div>
 </nav>
 

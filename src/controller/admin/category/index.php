@@ -1,14 +1,15 @@
 <?php
 
+use App\Auth;
 use App\Connection;
-use App\Table\PostTable;
+use App\Table\CategoryTable;
 
-$title = 'Administration';
+Auth::check();
+
+$title = "Gestion des catégories";
 $pdo = Connection::getPDO();
-
-[$posts, $pagination] = (new PostTable($pdo))->findPaginated();
-
-$link = $router->url('admin_posts');
+$items = (new CategoryTable($pdo))->all();
+$link = $router->url('admin_categories');
 
 ob_start();
 require $this->viewPath . DIRECTORY_SEPARATOR . 'admin/category/index.php';
