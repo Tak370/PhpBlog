@@ -35,6 +35,12 @@ abstract class Table
         return $result;
     }
 
+    public function all(): array
+    {
+        $sql = "SELECT * from {$this->table}";
+        return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
+    }
+
     public function create(array $data): int
     {
         $sqlFields = [];
@@ -47,6 +53,11 @@ abstract class Table
             throw new Exception("Impossible de créer l'enregistrement dans la table {$this->table}");
         }
         return (int)$this->pdo->lastInsertId();
+    }
+
+    public function queryAndFetchAll(string $sql): array
+    {
+        return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }
 
 }
