@@ -30,7 +30,7 @@
             <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
             <li class="nav-item"><a class="nav-link active" href="<?= $router->url('admin_posts') ?>">Articles</a></li>
             <li class="nav-item"><a class="nav-link" href="<?= $router->url('admin_categories') ?>">Catégories</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/">Se déconnecter</a></li>
+            <li class="nav-item"><a class="nav-link active" href="<?= $router->url('logout') ?>">Se déconnecter</a></li>
     </div>
 </nav>
 
