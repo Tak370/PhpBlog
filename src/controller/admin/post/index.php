@@ -13,4 +13,4 @@ $link = $router->url('admin_posts');
 ob_start();
 require $this->viewPath . DIRECTORY_SEPARATOR . 'admin/post/index.php';
 $content = ob_get_clean();
-require $this->viewPath . DIRECTORY_SEPARATOR . 'layout/blog.php';
+require $this->viewPath . DIRECTORY_SEPARATOR . 'admin/layout/administration.php';
