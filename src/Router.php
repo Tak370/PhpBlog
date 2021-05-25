@@ -1,17 +1,16 @@
 <?php
 namespace App;
 
-class Router {
+use App\Exception\HttpNotFoundException;
 
+class Router
+{
     /**
      * @var string
      */
     private $viewPath;
-
-    public $layout = 'layout/home';
-
     /**
-     * @var AltoRouter
+     * @var \AltoRouter
      */
     private $router;
     private $controllerPath;
@@ -51,12 +50,13 @@ class Router {
     public function run(): self
     {
         $match = $this->router->match();
-        $controller = $match['target'] ?: 'e404';
+        if (!$match) {
+            throw new HttpNotFoundException();
+        }
+        $controller = $match['target'];
+        $params = $match['params'];
         $router = $this;
-        ob_start();
         require $this->controllerPath . DIRECTORY_SEPARATOR . $controller . '.php';
-        $content = ob_get_clean();
-        require $this->viewPath . DIRECTORY_SEPARATOR . $this->layout . '.php';
 
         return $this;
     }

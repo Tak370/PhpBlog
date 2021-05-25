@@ -2,26 +2,31 @@
 namespace App\Model;
 
 use App\Helper\Text;
-use \DateTime;
+use DateTime;
 
 class Post
 {
-
     private $id;
-
     private $name;
-
     private $slug;
-
     private $content;
-
     private $created_at;
-
+    private $comments = [];
     private $categories = [];
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
     }
 
     public function getExcerpt(): ?string
@@ -29,7 +34,7 @@ class Post
         if ($this->content === null) {
             return null;
         }
-        return nl2br(htmlentities(Text::excerpt($this->content, 60)));
+        return Text::excerpt($this->content, 60);
     }
 
     public function getCreatedAt(): DateTime
@@ -37,13 +42,35 @@ class Post
         return new DateTime($this->created_at);
     }
 
-    public function getSlug (): ?string
+    public function getContent(): ?string
     {
-        return $this->slug;
+        return ($this->content);
     }
 
-    public function getID (): ?int
+    /**
+     * @return Category[]
+     */
+    public function getCategories(): array
     {
-        return $this->id;
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): void
+    {
+        $this->categories[] = $category;
+        $category->setPost($this);
+    }
+
+    /**
+     * @return Comment[]
+     */
+    public function getComments(): array
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): void
+    {
+        $this->comments[] = $comment;
     }
 }
