@@ -3,6 +3,7 @@
 namespace App\Table;
 
 use App\Model\Category;
+use App\Model\Post;
 use PDO;
 
 final class CategoryTable extends Table
@@ -11,7 +12,7 @@ final class CategoryTable extends Table
     protected $class = Category::class;
 
     /**
-     * @param App\Model\Post[] $posts
+     * @param Post[] $posts
      */
     public function hydratePosts(array $posts): void
     {
@@ -30,4 +31,20 @@ final class CategoryTable extends Table
             $postsById[$category->getPostId()]->addCategory($category);
         }
     }
+
+    public function all(): array
+    {
+        return $this->queryAndFetchAll("SELECT * from {$this->table} ORDER BY id DESC");
+    }
+
+    public function list(): array
+    {
+        $categories = $this->queryAndFetchAll("SELECT * from {$this->table} ORDER BY name");
+        $results = [];
+        foreach($categories as $category) {
+            $results[$category->getId()] = $category->getName();
+        }
+        return $results;
+    }
+
 }

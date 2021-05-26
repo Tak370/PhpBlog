@@ -46,6 +46,14 @@ section .heading h2{
     text-transform: uppercase;
     font-weight: bold;
 }
+.navbar button{
+    background-color: #ff6861;
+    font-size: 12px;
+    border-bottom: 1px solid #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
 .nav-pills .nav-link{
     color: #fff !important;
     text-align: center;
@@ -82,8 +90,8 @@ section .heading h2{
 .button1{
     font-weight: bold;
     text-transform: uppercase;
-    color: white;
-    border: 1px solid white;
+    color: #fff;
+    border: 1px solid #fff;
     display: inline-block;
     margin-top:  30px;
     padding: 18px 50px;
@@ -91,7 +99,7 @@ section .heading h2{
     transition: all 0.3s ease-in 0s;
 }
 .button1:hover{
-    background: white;
+    background: #fff;
     color: #ff6861;
     text-decoration: none;
 }
@@ -178,11 +186,17 @@ footer h5{
 #blog .heading h2, h3, p{
     color: #000;
 }
-#blog a{
-    color: darkcyan;
+
+
+/* ADMIN */
+.admin-navbar {
+    font-size: 12px;
+    border-bottom: 1px solid #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
-#blog .btn-info{
-    background: #ff6861;
-    border-color: #ff6861;
-    color: #fff;
+.admin-navbar .nav-pills .nav-link.active, .admin-navbar .nav-pills .nav-link:hover{
+    color: #0275d8 !important;
+    background-color: #fff !important;
 }

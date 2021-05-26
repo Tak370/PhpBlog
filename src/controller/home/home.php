@@ -1,7 +1,7 @@
 <?php
 use App\Service\SwiftMailer;
 
-$title = 'Mon Site';
+$title = 'Accueil';
 
 if (isset($_POST['sendmail'])) {
     $swiftMailer = new SwiftMailer();

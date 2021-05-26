@@ -2,7 +2,7 @@
 use App\Connection;
 use App\Table\PostTable;
 
-$title = 'Le Blog';
+$title = 'Blog';
 $pdo = Connection::getPDO();
 
 $table = new PostTable($pdo);

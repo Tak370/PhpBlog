@@ -55,7 +55,7 @@ class PaginatedQuery
             $link .= "?page=" . ($currentPage - 1);
         }
         return <<<HTML
-            <a href="{$link}" class="btn btn-info">&laquo; Page précédente</a>
+            <a href="{$link}" class="btn btn-primary">&laquo; Page précédente</a>
 HTML;
     }
 
@@ -68,7 +68,7 @@ HTML;
         }
         $link .= "?page=" . ($currentPage + 1);
         return <<<HTML
-            <a href="{$link}" class="btn btn-info ml-auto">Page suivante &raquo;</a>
+            <a href="{$link}" class="btn btn-primary ml-auto">Page suivante &raquo;</a>
 HTML;
     }
 
