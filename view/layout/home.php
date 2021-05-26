@@ -31,7 +31,7 @@
             <li class="nav-item"><a class="nav-link goto" href="#skills">Compétences</a></li>
             <li class="nav-item"><a class="nav-link goto" href="#about">À propos</a></li>
             <li class="nav-item"><a class="nav-link goto" href="#contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="blog">Le Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
         </ul>
     </div>
 </nav>

@@ -28,7 +28,8 @@
     <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
         <ul class="nav nav-pills navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/blog">Articles</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog">Articles</a></li>
+            <li class="nav-item"><a class="nav-link" href="login">Admin</a></li>
     </div>
 </nav>
 

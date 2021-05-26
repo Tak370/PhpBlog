@@ -18,7 +18,7 @@
 
 <body class="d-flex flex-column h-100">
 
-<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-primary admin-navbar">
     <a class="navbar-brand" href="#"></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -28,11 +28,11 @@
     <div class="collapse navbar-collapse justify-content-center" id="myNavbar">
         <ul class="nav nav-pills navbar-nav">
             <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link active" href="<?= $router->url('admin_posts') ?>">Articles</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?= $router->url('admin_posts') ?>">Articles</a></li>
             <li class="nav-item"><a class="nav-link" href="<?= $router->url('admin_categories') ?>">Catégories</a></li>
             <li class="nav-item">
                 <form action="<?= $router->url('logout') ?>" method="post" style="display: inline">
-                    <button class="btn btn-primary nav-link" type="submit" style="background:transparent; border:none;">Se déconnecter</button>
+                    <button class="btn btn-primary nav-link" type="submit" style="background:transparent; border:none;">Déconnexion</button>
                 </form>
             </li>
     </div>
